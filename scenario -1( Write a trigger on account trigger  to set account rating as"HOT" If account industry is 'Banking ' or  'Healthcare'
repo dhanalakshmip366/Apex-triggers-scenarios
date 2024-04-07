@@ -1,0 +1,11 @@
+trigger Updateonaccountforratingsfield on Account (before insert,Before update) {
+    if((Trigger.isBefore) && ((Trigger.isInsert) || (trigger.isUpdate)))
+    {
+        for(Account acc : trigger.new){
+            if(acc.Industry=='Banking'|| acc.Industry=='Healthcare'){
+                   acc.Rating ='Hot';
+            }
+        }
+    
+    }
+}
